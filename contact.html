@@ -117,7 +117,7 @@
 					</h4>
 
 					<div class="wow fadeIn" data-wow-delay="0.3s">
-						<form>
+						<form id="contactForm">
 							<div class="row g-3">
 
 								<div class="col-md-6">
@@ -334,6 +334,40 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+	
+	<script>
+	  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyhTrWD_rc2CPdeR5jORYayiaJF5iGmpnWmKncq3fCu_TuMg-TBo6Jh1p5rvvhpAedyYQ/exec";
+
+	  document.getElementById("contactForm").addEventListener("submit", async function(e){
+		e.preventDefault();
+
+		const payload = {
+		  name: document.getElementById("name").value.trim(),
+		  email: document.getElementById("email").value.trim(),
+		  subject: document.getElementById("subject").value.trim(),
+		  message: document.getElementById("message").value.trim()
+		};
+
+		try {
+		  const res = await fetch(SCRIPT_URL, {
+			method: "POST",
+			headers: { "Content-Type": "text/plain;charset=utf-8" }, 
+			body: JSON.stringify(payload)
+		  });
+
+		  const out = await res.json();
+		  if (out.ok) {
+			alert("✅ Message sent successfully!");
+			e.target.reset();
+		  } else {
+			alert("❌ Failed: " + out.msg);
+		  }
+		} catch (err) {
+		  alert("❌ Error: " + err);
+		}
+	  });
+	</script>
+
 </body>
 
 </html>
