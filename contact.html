@@ -122,28 +122,35 @@
 
 								<div class="col-md-6">
 									<div class="form-floating">
-										<input type="text" class="form-control" id="name" placeholder="Your Name">
+										<input type="text" class="form-control" id="name" placeholder="Your Name" required="true">
 										<label for="name">Your Name</label>
 									</div>
 								</div>
 
 								<div class="col-md-6">
 									<div class="form-floating">
-										<input type="email" class="form-control" id="email" placeholder="Your Email">
+										<input type="email" class="form-control" id="email" placeholder="Your Email" >
 										<label for="email">Your Email</label>
 									</div>
 								</div>
 
-								<div class="col-12">
+								<div class="col-6">
 									<div class="form-floating">
-										<input type="text" class="form-control" id="subject" placeholder="Subject">
+										<input type="text" class="form-control" id="subject" placeholder="Subject" required="true">
 										<label for="subject">Subject</label>
+									</div>
+								</div>
+								
+								<div class="col-6">
+									<div class="form-floating">
+										<input type="number" class="form-control" id="mobile" placeholder="Mobile (486) 5763 553" required="true">
+										<label for="mobile">Mobile</label>
 									</div>
 								</div>
 
 								<div class="col-12">
 									<div class="form-floating">
-										<textarea class="form-control" id="message" style="height:150px" placeholder="Message"></textarea>
+										<textarea class="form-control" id="message" style="height:150px" placeholder="Message" required="true"></textarea>
 										<label for="message">Message</label>
 									</div>
 								</div>
@@ -164,63 +171,13 @@
 
 					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2882.9471103269093!2d-79.6786954880521!3d43.73242557097796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b3c4324c4e333%3A0x1cf5d9535c766547!2s30%20Intermodal%20Dr%20Unit%202%2C%20Brampton%2C%20ON%20L6T%20K1!5e0!3m2!1sen!2sca!4v1770241904518!5m2!1sen!2sca" 
 						width="600" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-					
-					<!--
-					<iframe 
-						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2884.512983308635!2d-79.73168037994523!3d43.6998873505059!"
-						width="100%" 
-						height="450" 
-						style="border:0; border-radius:12px;"
-						allowfullscreen 
-						loading="lazy">
-					</iframe>  -->
-
 				</div>
 
 			</div>
 
 			
 			
-			<!--
-            <div class="row justify-content-center">
-                <div class="col-lg-7">
-                    <h4 class="text-center lh-base mb-4">Reach out to CEF Navigation (Career / Education / Funding) for general guidance on education funding in Ontario, including OSAP navigation, grant awareness, and application readiness tips. We help you understand the process and stay organized while using official online resources.</h4>
-                    <div class="wow fadeIn" data-wow-delay="0.3s">
-                        <form>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                        <label for="name">Your Name</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                        <label for="email">Your Email</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                        <label for="subject">Subject</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
-                                        <label for="message">Message</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-			-->
+			
 		
 		
 		</div>
@@ -336,14 +293,16 @@
     <script src="js/main.js"></script>
 	
 	<script>
-	  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyhTrWD_rc2CPdeR5jORYayiaJF5iGmpnWmKncq3fCu_TuMg-TBo6Jh1p5rvvhpAedyYQ/exec";
-
+	  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyWfUJ9RE6KyMXK8y_1a2JqxGzyJJo3T0FTQQ_iBVD-eh0ynr--ZnKG4_DXpWLy5Ckusg/exec";
+						  
+	  
 	  document.getElementById("contactForm").addEventListener("submit", async function(e){
 		e.preventDefault();
 
 		const payload = {
 		  name: document.getElementById("name").value.trim(),
 		  email: document.getElementById("email").value.trim(),
+		  mobile: document.getElementById("mobile").value.trim(),
 		  subject: document.getElementById("subject").value.trim(),
 		  message: document.getElementById("message").value.trim()
 		};
